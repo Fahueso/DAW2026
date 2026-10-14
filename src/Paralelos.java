@@ -1,7 +1,7 @@
 public class Paralelos {
     public static void main(String[] args) {
         String[] nombres = {"Luis","Ana","Luz", "Daniela"};
-        int[] edades = {20,19,21,15};
+        int[] edades = {16,19,21,15};
         String[] poblacion = {"Sagunto", "Puerto", "Puzol", "Vall"};
         String[] sexo = {"M", "F", "F","F"};
         //listar como si fuera un select *
@@ -19,6 +19,13 @@ public class Paralelos {
                 System.out.println(nombres[i] + " es chico");
             }
         }
-
+        //listar aquellas personas que son menores de edad
+        // y viven en localidades con nombre > 5 letras
+        for (int i=0;i<edades.length;i++){
+            if ((edades[i]<18)&&(poblacion[i].length()>5)){
+                System.out.println(nombres[i] + " es menor"
+                        + " y vive en " + poblacion[i]);
+            }
+        }
     }
 }
