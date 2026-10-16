@@ -5,12 +5,10 @@ public class Metodos {
         sumar(2,3);
         System.out.println("Fin del programa");
     }
-
     public static void saludar(){
         System.out.println("Hola clase");
         saludarv2();
     }
-
     public static void saludarv2(){
         System.out.println("Hola clase de Java");
     }
