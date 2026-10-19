@@ -12,11 +12,25 @@ public class Metodos3 {
             opcion = sc.nextInt();
             sc.nextLine();
             switch (opcion){
-                case 1: break;
-                case 2: break;
-                case 3: break;
-                case 4: break;
-                case 5: break;
+                case 1:
+                    //leer a y b
+                    System.out.println("Introduce a:");
+                    a=sc.nextInt();
+                    System.out.println("Introduce b:");
+                    b=sc.nextInt();
+                    break;
+                case 2:
+                    System.out.println(sumar(a,b));
+                    break;
+                case 3:
+                    System.out.println(restar(a,b));
+                     break;
+                case 4:
+                    System.out.println(multiplicar(a,b));
+                    break;
+                case 5:
+                    System.out.println(dividir(a,b));
+                    break;
                 case 6:
                     System.out.println("Saliendo..");
                     break;
@@ -28,6 +42,23 @@ public class Metodos3 {
         }while(opcion!=6);
 
 
+    }
+
+    private static int dividir(int a, int b) {
+        if (b!=0)
+            return a/b;
+        else{
+            System.out.println("Has pasado un 0. Te devuelvo 0");
+            return 0;
+        }
+    }
+
+    private static int multiplicar(int a, int b) {
+        return a*b;
+    }
+
+    private static int restar(int a, int b) {
+        return a-b;
     }
 
     public static void imprimirMenu(){
