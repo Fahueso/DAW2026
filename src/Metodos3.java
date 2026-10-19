@@ -45,7 +45,7 @@ public class Metodos3 {
 
     }
 
-    private static int dividir(int a, int b) {
+    public static int dividir(int a, int b) {
         if (b!=0)
             return a/b;
         else{
@@ -54,11 +54,11 @@ public class Metodos3 {
         }
     }
 
-    private static int multiplicar(int a, int b) {
+    public static int multiplicar(int a, int b) {
         return a*b;
     }
 
-    private static int restar(int a, int b) {
+    public static int restar(int a, int b) {
         return a-b;
     }
 
