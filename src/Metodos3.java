@@ -5,6 +5,7 @@ public class Metodos3 {
         Scanner sc = new Scanner(System.in);
         int a=0, b=0, opcion=0;
         boolean inicializado=false;
+        //bucle externo
         do{
             imprimirMenu();
             System.out.println("Dime la opción elegida");
