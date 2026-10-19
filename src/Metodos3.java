@@ -18,18 +18,19 @@ public class Metodos3 {
                     a=sc.nextInt();
                     System.out.println("Introduce b:");
                     b=sc.nextInt();
+                    inicializado=true;
                     break;
                 case 2:
-                    System.out.println(sumar(a,b));
+                    if (inicializado) System.out.println(sumar(a,b));
                     break;
                 case 3:
-                    System.out.println(restar(a,b));
+                    if (inicializado) System.out.println(restar(a,b));
                      break;
                 case 4:
-                    System.out.println(multiplicar(a,b));
+                    if (inicializado) System.out.println(multiplicar(a,b));
                     break;
                 case 5:
-                    System.out.println(dividir(a,b));
+                    if (inicializado) System.out.println(dividir(a,b));
                     break;
                 case 6:
                     System.out.println("Saliendo..");
