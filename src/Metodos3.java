@@ -3,14 +3,16 @@ import java.util.Scanner;
 public class Metodos3 {
     public static void main() {
         Scanner sc = new Scanner(System.in);
-        int a=5, b=6;
-        imprimirMenu();
-        int opcion = sc.nextInt();
-        switch (opcion){
-            case 2:
-                System.out.println(sumar(a,b));
-                break;
-        }
+        int a=0, b=0, opcion=0;
+        boolean inicializado=false;
+        do{
+            imprimirMenu();
+            System.out.println("Dime la opción elegida");
+            opcion = sc.nextInt();
+            sc.nextLine();
+
+        }while(opcion!=6);
+
 
     }
 
@@ -18,6 +20,9 @@ public class Metodos3 {
         System.out.println("Elige una opción");
         System.out.println("1-Introducir a,b");
         System.out.println("2-Sumar");
+        System.out.println("3-Restar");
+        System.out.println("4-Multiplicar");
+        System.out.println("5-Dividir");
         System.out.println("6-Salir");
     }
     public static int sumar(int op1,int op2){
