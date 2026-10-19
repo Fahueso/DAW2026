@@ -11,6 +11,19 @@ public class Metodos3 {
             System.out.println("Dime la opción elegida");
             opcion = sc.nextInt();
             sc.nextLine();
+            switch (opcion){
+                case 1: break;
+                case 2: break;
+                case 3: break;
+                case 4: break;
+                case 5: break;
+                case 6:
+                    System.out.println("Saliendo..");
+                    break;
+                default:
+                    System.out.println("Elige una op correcta");
+                    break;
+            }
 
         }while(opcion!=6);
 
