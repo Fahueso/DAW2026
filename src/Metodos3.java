@@ -14,10 +14,8 @@ public class Metodos3 {
             switch (opcion){
                 case 1:
                     //leer a y b
-                    System.out.println("Introduce a:");
-                    a=sc.nextInt();
-                    System.out.println("Introduce b:");
-                    b=sc.nextInt();
+                    a = capturarEntero(sc, "Introduce a:");
+                    b = capturarEntero(sc, "Introduce b:");
                     inicializado=true;
                     break;
                 case 2:
@@ -73,5 +71,10 @@ public class Metodos3 {
     }
     public static int sumar(int op1,int op2){
         return op1+op2;
+    }
+
+    public static int capturarEntero(Scanner sc, String mensaje){
+        System.out.println(mensaje);
+        return(sc.nextInt());
     }
 }
