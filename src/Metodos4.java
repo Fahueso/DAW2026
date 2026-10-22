@@ -3,8 +3,9 @@ import java.util.Scanner;
 public class Metodos4 {
     static void main() {
         Scanner sc = new Scanner(System.in);
-        int[] a = {1,23,4};
-        int[] b = {4,5,6};
+        int[] a = {};
+        int[] b = {};
+        final int tamanyo=5;
         int opcion=0;
         do{
             imprimirMenu();
@@ -12,7 +13,8 @@ public class Metodos4 {
             opcion = sc.nextInt();
             switch (opcion){
                 case 1:
-                    System.out.println("Sin implementar todavia");
+                    a = capturarArray(sc, tamanyo, "Introduce " + tamanyo + " enteros para montar a:");
+                    b = capturarArray(sc, tamanyo, "Introduce " + tamanyo + " enteros para montar b:");
                     break;
                 case 2:
                     int[] res = sumar(a,b);
