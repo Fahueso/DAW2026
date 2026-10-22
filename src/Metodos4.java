@@ -7,6 +7,7 @@ public class Metodos4 {
         int[] b = {};
         final int tamanyo=5;
         int opcion=0;
+        boolean inicializado=false;
         do{
             imprimirMenu();
             System.out.println("Introduce una opción:");
@@ -15,19 +16,23 @@ public class Metodos4 {
                 case 1:
                     a = capturarArray(sc, tamanyo, "Introduce " + tamanyo + " enteros para montar a:");
                     b = capturarArray(sc, tamanyo, "Introduce " + tamanyo + " enteros para montar b:");
+                    inicializado=true;
                     break;
                 case 2:
-                    int[] res = sumar(a,b);
-                    imprimirArray(res);
+                    if (inicializado)
+                        imprimirArray(sumar(a,b)); //dejamos el método abreviado
                     break;
                 case 3:
-                    imprimirArray(restar(a,b)); //método abreviado
+                    if (inicializado)
+                        imprimirArray(restar(a,b)); //método abreviado
                     break;
                 case 4:
-                    imprimirArray(multiplicar(a,b));
+                    if (inicializado)
+                        imprimirArray(multiplicar(a,b));
                     break;
                 case 5:
-                    imprimirArray(dividir(a,b));
+                    if (inicializado)
+                        imprimirArray(dividir(a,b));
                     break;
                 case 6:
                     System.out.println("Saliendo");
