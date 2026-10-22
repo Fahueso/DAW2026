@@ -42,6 +42,23 @@ public class Metodos4 {
 
     }
 
+    //Se necesita crear un array nuevo, del tamaño especificado
+    //y lo rellenaremos con enteros tomados con escaner.
+    //Además imprimiremos el mensaje informativo antes de rellenar el array
+    public static int[] capturarArray(Scanner sc, int tamanyo, String mensaje) {
+        int[] nuevo = new int[tamanyo];
+        System.out.println(mensaje);
+        for (int i=0;i<nuevo.length;i++){
+            nuevo[i]=capturarEntero(sc, "Introduce la posición " + i);
+        }
+        return nuevo;
+    }
+
+    public static int capturarEntero(Scanner sc, String mensaje){
+        System.out.println(mensaje);
+        return(sc.nextInt());
+    }
+
     public static void imprimirMenu(){
         System.out.println("Elige una opción con arrays");
         System.out.println("2-Sumar");
