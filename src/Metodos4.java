@@ -49,15 +49,12 @@ public class Metodos4 {
         int[] nuevo = new int[tamanyo];
         System.out.println(mensaje);
         for (int i=0;i<nuevo.length;i++){
-            nuevo[i]=capturarEntero(sc, "Introduce la posición " + i);
+            nuevo[i]=Metodos3.capturarEntero(sc, "Introduce la posición " + i);
         }
         return nuevo;
     }
 
-    public static int capturarEntero(Scanner sc, String mensaje){
-        System.out.println(mensaje);
-        return(sc.nextInt());
-    }
+
 
     public static void imprimirMenu(){
         System.out.println("Elige una opción con arrays");
