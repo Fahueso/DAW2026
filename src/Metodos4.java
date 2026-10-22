@@ -63,6 +63,7 @@ public class Metodos4 {
 
     public static void imprimirMenu(){
         System.out.println("Elige una opción con arrays");
+        System.out.println("1-Introducir a y b");
         System.out.println("2-Sumar");
         System.out.println("3-Restar");
         System.out.println("4-Multiplicar");
