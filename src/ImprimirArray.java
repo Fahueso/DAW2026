@@ -4,6 +4,7 @@ public class ImprimirArray {
         String[] personas = {"","",""};
         int[] edades = {0,0,0};
 
+        //imprimimos
         imprimirAsientos(asientos);
         imprimirPersonas(personas);
         imprimirEdades(edades);
