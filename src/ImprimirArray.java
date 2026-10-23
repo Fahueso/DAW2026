@@ -30,8 +30,10 @@ public class ImprimirArray {
 
     public static void imprimirArray(char[] array){
         for (int i=0;i<array.length;i++){
-            System.out.println(array[i] + " ");
+            System.out.print(array[i] + " ");
         }
+        System.out.println();
+
     }
 
     public static void imprimirArray(String[] array, String mensaje){
@@ -41,8 +43,10 @@ public class ImprimirArray {
 
     public static void imprimirArray(String[] array){
         for (int i=0;i<array.length;i++){
-            System.out.println(array[i] + " ");
+            System.out.print(array[i] + " ");
         }
+        System.out.println();
+
     }
 
     public static void imprimirArray(int[] array, String mensaje){
@@ -52,7 +56,9 @@ public class ImprimirArray {
 
     public static void imprimirArray(int[] array){
         for (int i=0;i<array.length;i++){
-            System.out.println(array[i] + " ");
+            System.out.print(array[i] + " ");
         }
+        System.out.println();
+
     }
 }
