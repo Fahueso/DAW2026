@@ -56,7 +56,7 @@ import java.util.Scanner;
 
 public class Programa2 {
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
+        Scanner teclado = new Scanner(System.in);
 
         String[] productos = {
                 "Pan", "Leche", "Huevos", "Aceite", "Café", "Queso"
@@ -109,7 +109,7 @@ public class Programa2 {
 
         do {
             System.out.print("Producto a buscar: ");
-            nombre = sc.nextLine().trim();
+            nombre = teclado.nextLine().trim();
 
             if (!nombre.equalsIgnoreCase("fin")) {
                 boolean encontrado = false;
@@ -129,7 +129,7 @@ public class Programa2 {
 
         } while (!nombre.equalsIgnoreCase("fin"));
 
-        sc.close();
+        teclado.close();
     }
 }
 
