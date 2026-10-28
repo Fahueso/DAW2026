@@ -1,7 +1,5 @@
 package simulacro;
 
-import java.util.Scanner;
-
 /*
  * PROGRAMA 2: PRODUCTOS Y PRECIOS
  * ---------------------------------------------------------------
