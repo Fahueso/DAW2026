@@ -65,23 +65,9 @@ public class TiendaVideojuegos {
             } else if (opcion == 5) {
 
                 System.out.println();
-
                 if (registrado) {
-
-                    if (stock > 0) {
-
-                        stock--;
-
-                        System.out.println("Venta realizada.");
-                        System.out.println("Stock restante: " + stock);
-
-                    } else {
-
-                        System.out.println("No quedan unidades disponibles.");
-                    }
-
+                    stock = reducirStock(stock);
                 } else {
-
                     System.out.println("No hay videojuego registrado.");
                 }
 
@@ -202,6 +188,17 @@ public class TiendaVideojuegos {
         } while (opcion != 10);
 
         sc.close();
+    }
+
+    private static int reducirStock(int stock) {
+        if (stock > 0) {
+            stock--;
+            System.out.println("Venta realizada.");
+            System.out.println("Stock restante: " + stock);
+        } else {
+            System.out.println("No quedan unidades disponibles.");
+        }
+        return stock;
     }
 
     private static double aplicarDescuento(Scanner sc, double precio) {
