@@ -42,45 +42,13 @@ public class TiendaVideojuegos {
                 System.out.println("Videojuego registrado correctamente.");
 
             } else if (opcion == 2) {
-               //TODO impimirJuego(registrado, titulo, plataforma, precio);
-
-                System.out.println();
-
-                if (registrado) {
-
-                    System.out.println("DATOS DEL VIDEOJUEGO");
-                    System.out.println("Título: " + titulo);
-                    System.out.println("Plataforma: " + plataforma);
-                    System.out.println("Precio: " + precio + " €");
-
-                } else {
-
-                    System.out.println("No hay videojuego registrado.");
-                }
-
+               imprimirJuego(registrado, titulo, plataforma, precio);
             } else if (opcion == 3) {
-
                 System.out.println();
 
-                if (registrado) {
-
-                    double nuevoPrecio;
-
-                    do {
-
-                        System.out.print("Nuevo precio: ");
-                        nuevoPrecio = sc.nextDouble();
-
-                        if (nuevoPrecio < 0) {
-                            System.out.println("Error. Precio incorrecto.");
-                        }
-
-                    } while (nuevoPrecio < 0);
-
-                    precio = nuevoPrecio;
-
+                if (registrado){
+                    precio = cambiarPrecio(sc);
                     System.out.println("Precio actualizado.");
-
                 } else {
 
                     System.out.println("No hay videojuego registrado.");
@@ -254,6 +222,39 @@ public class TiendaVideojuegos {
         } while (opcion != 10);
 
         sc.close();
+    }
+
+private static double cambiarPrecio(Scanner sc) {
+
+    double nuevoPrecio;
+        do {
+            System.out.print("Nuevo precio: ");
+            nuevoPrecio = sc.nextDouble();
+
+            if (nuevoPrecio < 0) {
+                System.out.println("Error. Precio incorrecto.");
+            }
+        } while (nuevoPrecio < 0);
+
+
+
+        return(nuevoPrecio);
+}
+
+private static void imprimirJuego(boolean registrado, String titulo, String plataforma, double precio) {
+        System.out.println();
+
+        if (registrado) {
+
+            System.out.println("DATOS DEL VIDEOJUEGO");
+            System.out.println("Título: " + titulo);
+            System.out.println("Plataforma: " + plataforma);
+            System.out.println("Precio: " + precio + " €");
+
+        } else {
+
+            System.out.println("No hay videojuego registrado.");
+        }
     }
 
 
