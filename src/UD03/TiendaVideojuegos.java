@@ -84,78 +84,11 @@ public class TiendaVideojuegos {
                 }
 
             } else if (opcion == 7) {
-
-                System.out.println();
-
-                if (registrado) {
-
-                    if (stock > 0) {
-                        System.out.println("Disponible.");
-                    } else {
-                        System.out.println("Sin existencias.");
-                    }
-
-                } else {
-
-                    System.out.println("No hay videojuego registrado.");
-                }
-
+                consultarDisponibilidad(registrado, stock);
             } else if (opcion == 8) {
-
-                System.out.println();
-
-                if (registrado) {
-
-                    if (precio < 20) {
-
-                        System.out.println("Valoración económica.");
-
-                    } else if (precio < 50) {
-
-                        System.out.println("Valoración media.");
-
-                    } else {
-
-                        System.out.println("Valoración premium.");
-                    }
-
-                } else {
-
-                    System.out.println("No hay videojuego registrado.");
-                }
-
+                mostrarValoracion(registrado, precio);
             } else if (opcion == 9) {
-
-                System.out.println();
-
-                if (registrado) {
-
-                    System.out.println("FICHA COMPLETA");
-                    System.out.println("---------------------------");
-                    System.out.println("Título: " + titulo);
-                    System.out.println("Plataforma: " + plataforma);
-                    System.out.println("Género: " + genero);
-                    System.out.println("Precio: " + precio + " €");
-                    System.out.println("Stock: " + stock);
-
-                    if (stock > 0) {
-                        System.out.println("Disponible: Sí");
-                    } else {
-                        System.out.println("Disponible: No");
-                    }
-
-                    if (precio < 20) {
-                        System.out.println("Categoría: Económica");
-                    } else if (precio < 50) {
-                        System.out.println("Categoría: Media");
-                    } else {
-                        System.out.println("Categoría: Premium");
-                    }
-
-                } else {
-
-                    System.out.println("No hay videojuego registrado.");
-                }
+                imprimirFicha(registrado, titulo, plataforma, genero, precio, stock);
 
             } else if (opcion == 10) {
 
@@ -172,6 +105,66 @@ public class TiendaVideojuegos {
         } while (opcion != 10);
 
         sc.close();
+    }
+
+    private static void imprimirFicha(boolean registrado, String titulo, String plataforma, String genero, double precio, int stock) {
+        System.out.println();
+        if (registrado) {
+            System.out.println("FICHA COMPLETA");
+            System.out.println("---------------------------");
+            System.out.println("Título: " + titulo);
+            System.out.println("Plataforma: " + plataforma);
+            System.out.println("Género: " + genero);
+            System.out.println("Precio: " + precio + " €");
+            System.out.println("Stock: " + stock);
+            if (stock > 0) {
+                System.out.println("Disponible: Sí");
+            } else {
+                System.out.println("Disponible: No");
+            }
+            if (precio < 20) {
+                System.out.println("Categoría: Económica");
+            } else if (precio < 50) {
+                System.out.println("Categoría: Media");
+            } else {
+                System.out.println("Categoría: Premium");
+            }
+        } else {
+
+            System.out.println("No hay videojuego registrado.");
+        }
+    }
+
+    private static void mostrarValoracion(boolean registrado, double precio) {
+        System.out.println();
+        if (registrado) {
+            if (precio < 20) {
+                System.out.println("Valoración económica.");
+            } else if (precio < 50) {
+                System.out.println("Valoración media.");
+            } else {
+                System.out.println("Valoración premium.");
+            }
+        } else {
+            System.out.println("No hay videojuego registrado.");
+        }
+    }
+
+    private static void consultarDisponibilidad(boolean registrado, int stock) {
+        System.out.println();
+
+        if (registrado) {
+
+            if (stock > 0) {
+                System.out.println("Disponible.");
+            } else {
+                System.out.println("Sin existencias.");
+            }
+
+        } else {
+
+            System.out.println("No hay videojuego registrado.");
+        }
     }
 
     private static int aumentarStock(Scanner sc, int stock) {
