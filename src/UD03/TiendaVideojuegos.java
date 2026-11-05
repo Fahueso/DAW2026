@@ -55,30 +55,10 @@ public class TiendaVideojuegos {
                 }
 
             } else if (opcion == 4) {
-
                 System.out.println();
-
                 if (registrado) {
-
-                    double descuento;
-
-                    do {
-
-                        System.out.print("Introduzca descuento (%): ");
-                        descuento = sc.nextDouble();
-
-                        if (descuento < 0 || descuento > 100) {
-                            System.out.println("Descuento inválido.");
-                        }
-
-                    } while (descuento < 0 || descuento > 100);
-
-                    precio = precio - (precio * descuento / 100);
-
-                    System.out.println("Precio final: " + precio + " €");
-
+                    precio = aplicarDescuento(sc, precio);
                 } else {
-
                     System.out.println("No hay videojuego registrado.");
                 }
 
@@ -224,7 +204,22 @@ public class TiendaVideojuegos {
         sc.close();
     }
 
-private static double cambiarPrecio(Scanner sc) {
+    private static double aplicarDescuento(Scanner sc, double precio) {
+        double descuento;
+        do {
+            System.out.print("Introduzca descuento (%): ");
+            descuento = sc.nextDouble();
+            if (descuento < 0 || descuento > 100) {
+                System.out.println("Descuento inválido.");
+            }
+        } while (descuento < 0 || descuento > 100);
+        precio = precio - (precio * descuento / 100);
+        System.out.println("Precio final: " + precio + " €");
+        return  precio;
+
+    }
+
+    private static double cambiarPrecio(Scanner sc) {
 
     double nuevoPrecio;
         do {
