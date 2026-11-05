@@ -74,25 +74,9 @@ public class TiendaVideojuegos {
             } else if (opcion == 6) {
 
                 System.out.println();
-
                 if (registrado) {
+                    stock += aumentarStock(sc, stock);
 
-                    int unidades;
-
-                    do {
-
-                        System.out.print("¿Cuántas unidades desea añadir?: ");
-                        unidades = sc.nextInt();
-
-                        if (unidades < 0) {
-                            System.out.println("Cantidad incorrecta.");
-                        }
-
-                    } while (unidades < 0);
-
-                    stock += unidades;
-
-                    System.out.println("Nuevo stock: " + stock);
 
                 } else {
 
@@ -188,6 +172,21 @@ public class TiendaVideojuegos {
         } while (opcion != 10);
 
         sc.close();
+    }
+
+    private static int aumentarStock(Scanner sc, int stock) {
+        int unidades;
+        do {
+            System.out.print("¿Cuántas unidades desea añadir?: ");
+            unidades = sc.nextInt();
+            if (unidades < 0) {
+                System.out.println("Cantidad incorrecta.");
+            }
+        } while (unidades < 0);
+        stock += unidades;
+
+        System.out.println("Nuevo stock: " + stock);
+        return(stock);
     }
 
     private static int reducirStock(int stock) {
