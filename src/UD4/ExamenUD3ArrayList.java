@@ -1,38 +1,49 @@
 package UD4;
 
 import java.util.ArrayList;
-import java.util.Collections;
+import java.util.Scanner;
 
 public class ExamenUD3ArrayList {
     static void main() {
         ArrayList<Integer> temperaturas = new ArrayList<>();
+        Scanner sc = new Scanner(System.in);
 
-        //opcion 1
-        temperaturas.add(10);
-        temperaturas.add(12);
+        int opcion=0; 
+        do {
+            imprimirMenu();
+            opcion = sc.nextInt();
+            switch (opcion) {
+                case 1:registrarTemperatura(sc, temperaturas);break;
+                case 2: temperaturas.clear();break;
+                case 3: imprimirTemperaturas(temperaturas);break;
+                case 4:
+                    imprimirTemperaturaMax(temperaturas);
+                    imprimirTemperaturaMin(temperaturas);
+                    break;
+                case 5:imprimirTemperaturaMedia(temperaturas);break;
+                case 6:System.out.println("Saliendo...");break;
+                default:System.out.println("Opcion incorrecta");break;
+            }
+        }while (opcion!=6);
 
-        // opcion2
-        System.out.print("Temperaturas: ");
-        for (Integer temp: temperaturas){
-            System.out.print(temp + " - ");
-        }
+    }
 
-        //opcion3
-        temperaturas.clear();
+    private static void imprimirMenu() {
+    }
 
-        //volvemos a meter valores para que no falle max y min
-        temperaturas.add(10);
-        temperaturas.add(12);
+    private static void imprimirTemperaturaMedia(ArrayList<Integer> temperaturas) {
+        
+    }
 
-        //opcion4
-        int max=0, min=Integer.MAX_VALUE;
-//        for (Integer temp: temperaturas){
-//            if (temp > max)
-//                max = temp;
-//        }
-        max = Collections.max(temperaturas);
-        min = Collections.min(temperaturas);
-        System.out.println("Max:" + max + " Min: "+ min);
+    private static void imprimirTemperaturaMin(ArrayList<Integer> temperaturas) {
+    }
 
+    private static void imprimirTemperaturaMax(ArrayList<Integer> temperaturas) {
+    }
+
+    private static void imprimirTemperaturas(ArrayList<Integer> temperaturas) {
+    }
+
+    private static void registrarTemperatura(Scanner sc, ArrayList<Integer> temperaturas) {
     }
 }
