@@ -14,7 +14,7 @@ public class ExamenUD3ArrayList {
             opcion = sc.nextInt();
             switch (opcion) {
                 case 1:registrarTemperatura(sc, temperaturas);break;
-                case 2: temperaturas.clear();break;
+                case 2: limpiarTemperaturas(sc, temperaturas);break;
                 case 3: imprimirTemperaturas(temperaturas);break;
                 case 4:
                     imprimirTemperaturaMax(temperaturas);
@@ -27,6 +27,10 @@ public class ExamenUD3ArrayList {
         }while (opcion!=6);
 
     }
+
+    private static void limpiarTemperaturas(Scanner sc, ArrayList<Integer> temperaturas) {
+    }
+
 
     private static void imprimirMenu() {
     }
@@ -42,6 +46,14 @@ public class ExamenUD3ArrayList {
     }
 
     private static void imprimirTemperaturas(ArrayList<Integer> temperaturas) {
+        if (temperaturas.size()>0) {
+            System.out.println("Temperaturas:");
+            for (Integer temp : temperaturas) {
+                System.out.print(temp + " - ");
+            }
+        } else {
+            System.out.println("No hay temperaturas registradas");
+        }
     }
 
     private static void registrarTemperatura(Scanner sc, ArrayList<Integer> temperaturas) {
