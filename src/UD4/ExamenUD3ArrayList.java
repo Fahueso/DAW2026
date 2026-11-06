@@ -46,7 +46,7 @@ public class ExamenUD3ArrayList {
     }
 
     private static void imprimirTemperaturas(ArrayList<Integer> temperaturas) {
-        if (temperaturas.size()>0) {
+        if (temperaturas.size()>0) { // igual que if(temperaturas.isEmpty())
             System.out.println("Temperaturas:");
             for (Integer temp : temperaturas) {
                 System.out.print(temp + " - ");
