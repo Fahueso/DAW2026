@@ -59,6 +59,17 @@ public class ExamenUD3ArrayList {
     }
 
     private static void imprimirTemperaturaMax(ArrayList<Integer> temperaturas) {
+        if (!temperaturas.isEmpty()) {
+            int max = temperaturas.getFirst();
+            for (Integer temp : temperaturas) {
+                if (max < temp) {
+                    max = temp;
+                }
+            }
+            System.out.println("La temp máx es " + max);
+        } else {
+            System.out.println("No hay temperaturas");
+        }
     }
 
     private static void imprimirTemperaturas(ArrayList<Integer> temperaturas) {
