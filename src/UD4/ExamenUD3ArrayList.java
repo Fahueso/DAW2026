@@ -12,6 +12,7 @@ public class ExamenUD3ArrayList {
         do {
             imprimirMenu();
             opcion = sc.nextInt();
+            sc.nextLine();
             switch (opcion) {
                 case 1:registrarTemperatura(sc, temperaturas);break;
                 case 2: limpiarTemperaturas(sc, temperaturas);break;
@@ -29,10 +30,25 @@ public class ExamenUD3ArrayList {
     }
 
     private static void limpiarTemperaturas(Scanner sc, ArrayList<Integer> temperaturas) {
+        char confirmacion;
+        System.out.println("Seguro que quiere borrar s/n");
+        confirmacion = sc.nextLine().toLowerCase().charAt(0);
+        if (confirmacion=='s'){
+            temperaturas.clear();
+        }
+
     }
 
 
     private static void imprimirMenu() {
+        System.out.println("""
+                1 - Registrar
+                2 - Limpiar
+                3 - Imprimir
+                4 - Max y Min
+                5 - Promedio
+                6 - Salir
+                """);
     }
 
     private static void imprimirTemperaturaMedia(ArrayList<Integer> temperaturas) {
@@ -54,6 +70,7 @@ public class ExamenUD3ArrayList {
         } else {
             System.out.println("No hay temperaturas registradas");
         }
+        System.out.println();
     }
 
     private static void registrarTemperatura(Scanner sc, ArrayList<Integer> temperaturas) {
@@ -62,7 +79,7 @@ public class ExamenUD3ArrayList {
         System.out.println("Cuantas muestras deseas tomar");
         veces = sc.nextInt();
         sc.nextLine();
-        for (int i=0;i<veces-1;i++){
+        for (int i=0;i<veces;i++){
             System.out.println("Dime temperatura  " + i);
             temp = sc.nextInt();
             sc.nextLine();
