@@ -57,5 +57,21 @@ public class ExamenUD3ArrayList {
     }
 
     private static void registrarTemperatura(Scanner sc, ArrayList<Integer> temperaturas) {
+        int veces = 0;
+        int temp= 0;
+        System.out.println("Cuantas muestras deseas tomar");
+        veces = sc.nextInt();
+        sc.nextLine();
+        for (int i=0;i<veces-1;i++){
+            System.out.println("Dime temperatura  " + i);
+            temp = sc.nextInt();
+            sc.nextLine();
+            if (temp >= -273) {
+                //introducimos el valor en el arraylist
+                temperaturas.add(temp);
+            } else {
+                System.out.println("Temperatura fuera de rango. No la introducimos");
+            }
+        }
     }
 }
