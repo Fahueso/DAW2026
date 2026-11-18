@@ -119,18 +119,41 @@ public class ExamenCesta {
         eliminarProductosAgotados(nombres, precios, cantidades);
 
         // 2. Realizar cálculos e imprimir (formato exacto en el enunciado)
-        // Ejemplo: System.out.println("Total de la compra: " + calcularTotal(precios, cantidades) + " euros");
+        System.out.println("Productos en la cesta tras la limpieza: " + nombres.size());
+        System.out.println("Total de la compra: " + calcularTotal(precios, cantidades) + " euros");
+        System.out.println("Producto mas caro: " + obtenerProductoCaro(nombres, precios));
+        System.out.println("Producto con mayor gasto: " + obtenerMayorGasto(nombres,precios, cantidades));
+
+
     }
 
     public static void eliminarProductosAgotados(ArrayList<String> nombres, ArrayList<Integer> precios, ArrayList<Integer> cantidades) {
         // TODO: Implementar Iterator para eliminar elementos con cantidad == 0
-        // Debe eliminarse el elemento en las TRES listas para mantener la sincronía.
+        Iterator<Integer> it = cantidades.iterator();
+        int indice=0;
+
+        while (it.hasNext()){
+            int cantidad = it.next();
+            if (cantidad==0){
+                it.remove();
+                nombres.remove(indice);
+                precios.remove(indice);
+            } else {
+                indice ++;
+            }
+
+        }
+
+
     }
 
     public static int calcularTotal(ArrayList<Integer> precios, ArrayList<Integer> cantidades) {
         // TODO: sumar precio * cantidad de todos los productos.
-        // Ejemplo: for(int i=0; i<precios.size(); i++) { suma += precios.get(i) * cantidades.get(i); }
-        return 0;
+        int suma=0;
+        for(int i=0; i<precios.size(); i++) {
+            suma += precios.get(i) * cantidades.get(i);
+        }
+        return suma;
     }
 
     public static String obtenerProductoCaro(ArrayList<String> nombres, ArrayList<Integer> precios) {
