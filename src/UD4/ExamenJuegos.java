@@ -167,51 +167,136 @@ public class ExamenJuegos {
     public static void ejecutarAdivinarNumero(Scanner scanner) {
         System.out.println("\n--- Bienvenido al Reto del Número Secreto ---");
         // TODO: Coordinar: generarNumero(), pedirIntento() en bucle y evaluarIntento().
-        // Debe contar los intentos y mostrar el mensaje final (ver enunciado).
-        // Ejemplo: while(!correcto) { int i = pedirIntento(scanner); ... }
+
+        int secreto = generarNumero();
+        int intentos = 0;
+        int intento;
+        String resultado;
+        boolean correcto = false;
+
+        do {
+            intento = pedirIntento(scanner);
+            intentos++;
+
+            resultado = evaluarIntento(intento, secreto);
+
+            System.out.println(resultado);
+
+            if (resultado.equals("Correcto")) {
+                correcto = true;
+            }
+
+        } while (!correcto);
+
+        if (intentos == 1) {
+            System.out.println("¡Lo has conseguido en 1 intento!");
+        } else {
+            System.out.println("¡Lo has conseguido en " + intentos + " intentos!");
+        }
     }
 
     public static int generarNumero() {
         // TODO: devolver un entero aleatorio entre 1 y 100 (ambos incluidos).
-        // Ejemplo: Random r = new Random(); return r.nextInt(100) + 1;
-        return 0;
+
+        Random r = new Random();
+
+        return r.nextInt(100) + 1;
     }
 
     public static int pedirIntento(Scanner scanner) {
         // TODO: mostrar "Tu número: " y devolver el entero leído.
-        // Ejemplo: System.out.print("Tu número: "); return scanner.nextInt();
-        return 0;
+        System.out.print("Tu número: ");
+        int num = scanner.nextInt();
+        scanner.nextLine();
+        return num;
     }
 
     public static String evaluarIntento(int intento, int secreto) {
         // TODO: devolver "Demasiado alto", "Demasiado bajo" o "Correcto".
-        // Ejemplo: if(intento > secreto) return "Demasiado alto";
-        return "";
+        String resultado;
+
+        if (intento > secreto) {
+            resultado = "Demasiado alto";
+        } else if (intento < secreto) {
+            resultado = "Demasiado bajo";
+        } else {
+            resultado = "Correcto";
+        }
+
+        return resultado;
     }
 
     /* --- 1.2 PIEDRA, PAPEL O TIJERAS --- */
     public static void ejecutarPiedraPapelTijera(Scanner scanner) {
         System.out.println("\n--- Bienvenido al Duelo de Piedra, Papel o Tijera ---");
         // TODO: Coordinar: pedirTiradaJugador(), generarTiradaMaquina() y calcularGanador().
-        // Debe mostrar "Tú: ... | Máquina: ..." y el mensaje del resultado (ver enunciado).
+        String jugador = pedirTiradaJugador(scanner);
+
+        String maquina = generarTiradaMaquina();
+
+        System.out.println("Tú: " + jugador + " | Máquina: " + maquina);
+
+        String ganador = calcularGanador(jugador, maquina);
+
+        if (ganador.equals("Jugador")) {
+            System.out.println("¡Ganas tú!");
+        } else if (ganador.equals("Máquina")) {
+            System.out.println("Gana la máquina.");
+        } else {
+            System.out.println("Empate.");
+        }
     }
 
     public static String generarTiradaMaquina() {
         // TODO: devolver "Piedra", "Papel" o "Tijera" al azar.
-        // Ejemplo: String[] opciones = {"Piedra", "Papel", "Tijera"}; return opciones[random.nextInt(3)];
-        return "";
+        String[] opciones = {"Piedra", "Papel", "Tijera"};
+
+        Random random = new Random();
+
+        return opciones[random.nextInt(3)];
+
     }
 
     public static String pedirTiradaJugador(Scanner scanner) {
         // TODO: pedir la tirada, validarla (repetir si no es válida) y
-        // devolverla normalizada: "Piedra", "Papel" o "Tijera".
-        // Ejemplo: System.out.print("Elige Piedra, Papel o Tijera: "); String t = scanner.next();
-        return "";
+        String tirada;
+        String resultado = "";
+
+        do {
+            System.out.print("Elige Piedra, Papel o Tijera: ");
+            tirada = scanner.next();
+
+            if (tirada.equalsIgnoreCase("piedra")) {
+                resultado = "Piedra";
+            } else if (tirada.equalsIgnoreCase("papel")) {
+                resultado = "Papel";
+            } else if (tirada.equalsIgnoreCase("tijera")) {
+                resultado = "Tijera";
+            } else {
+                System.out.println("Opción no válida. Inténtalo de nuevo.");
+            }
+
+        } while (resultado.equals(""));
+
+        return resultado;
     }
 
     public static String calcularGanador(String jugador, String maquina) {
         // TODO: devolver "Empate", "Jugador" o "Máquina".
-        // Ejemplo: if(jugador.equals(maquina)) return "Empate";
-        return "";
+        String ganador;
+
+        if (jugador.equals(maquina)) {
+            ganador = "Empate";
+        } else if (jugador.equals("Piedra") && maquina.equals("Tijera")) {
+            ganador = "Jugador";
+        } else if (jugador.equals("Tijera") && maquina.equals("Papel")) {
+            ganador = "Jugador";
+        } else if (jugador.equals("Papel") && maquina.equals("Piedra")) {
+            ganador = "Jugador";
+        } else {
+            ganador = "Máquina";
+        }
+
+        return ganador;
     }
 }
