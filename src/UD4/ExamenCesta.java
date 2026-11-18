@@ -158,13 +158,30 @@ public class ExamenCesta {
 
     public static String obtenerProductoCaro(ArrayList<String> nombres, ArrayList<Integer> precios) {
         // TODO: nombre del producto con mayor precio unitario ("Ninguno" si no hay productos).
-        // Ejemplo: Buscar el índice del precio más alto y devolver nombres.get(indice)
-        return "";
+        String producto = "Ninguno";
+        int precioMayor = -1;
+        for (int i = 0; i < precios.size(); i++) {
+            if (precios.get(i) > precioMayor) {
+                precioMayor = precios.get(i);
+                producto = nombres.get(i);
+            }
+        }
+
+        return producto;
     }
 
     public static String obtenerMayorGasto(ArrayList<String> nombres, ArrayList<Integer> precios, ArrayList<Integer> cantidades) {
         // TODO: nombre del producto con mayor (precio * cantidad) ("Ninguno" si no hay productos).
-        // Ejemplo: Buscar el índice donde (precio * cantidad) sea máximo y devolver nombre
-        return "";
+        String producto = "Ninguno";
+        int gastoMayor = -1;
+
+        for (int i = 0; i < precios.size(); i++) {
+            int gasto = precios.get(i) * cantidades.get(i);
+            if (gasto > gastoMayor) {
+                gastoMayor = gasto;
+                producto = nombres.get(i);
+            }
+        }
+        return producto;
     }
 }
