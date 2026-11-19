@@ -14,14 +14,16 @@ public class AnalisisAnual {
         // static int leerNumeroMeses(Scanner sc)
         // Lee un entero validado entre 1 y 12 y lo devuelve.
         // ==========================================
-        System.out.print("¿Cuántos meses quieres analizar (1-12)? ");
-        int numMeses = sc.nextInt();
-        sc.nextLine();
-        while (numMeses < 1 || numMeses > 12) {
-            System.out.print("Debe estar entre 1 y 12. ¿Cuántos meses? ");
-            numMeses = sc.nextInt();
-            sc.nextLine();
-        }
+
+        int numMeses = leerNumeroMeses(sc);
+//        System.out.print("¿Cuántos meses quieres analizar (1-12)? ");
+//        int numMeses = sc.nextInt();
+//        sc.nextLine();
+//        while (numMeses < 1 || numMeses > 12) {
+//            System.out.print("Debe estar entre 1 y 12. ¿Cuántos meses? ");
+//            numMeses = sc.nextInt();
+//            sc.nextLine();
+//        }
 
         // ================= MÉTODO (DUPLICADO abajo) =================
         // static double[] leerArray(Scanner sc, int numMeses, String concepto)
@@ -210,5 +212,17 @@ public class AnalisisAnual {
         }
 
         sc.close();
+    }
+
+    public static int leerNumeroMeses(Scanner sc){
+        System.out.print("¿Cuántos meses quieres analizar (1-12)? ");
+        int numMeses = sc.nextInt();
+        sc.nextLine();
+        while (numMeses < 1 || numMeses > 12) {
+            System.out.print("Debe estar entre 1 y 12. ¿Cuántos meses? ");
+            numMeses = sc.nextInt();
+            sc.nextLine();
+        }
+        return numMeses;
     }
 }
